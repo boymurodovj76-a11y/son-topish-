@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIRLI SON</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="neon">
+
+  <main class="container">
+
+    <header>
+      <h1 data-i18n="title">SIRLI SON</h1>
+      <p data-i18n="subtitle">1 dan 100 gacha bo‘lgan sirli sonni top!</p>
+
+      <div class="languages">
+        <button class="language-button active" data-language="uz"
+          onclick="changeLanguage('uz')">UZ</button>
+        <button class="language-button" data-language="ru"
+          onclick="changeLanguage('ru')">RU</button>
+        <button class="language-button" data-language="en"
+          onclick="changeLanguage('en')">EN</button>
+      </div>
+
+      <div class="themes">
+        <button onclick="changeTheme('neon')">Neon</button>
+        <button onclick="changeTheme('sky')">Sky</button>
+        <button onclick="changeTheme('magic')">Magic</button>
+      </div>
+    </header>
+
+    <section id="home" class="screen">
+      <h2 data-i18n="welcome">O‘yinga xush kelibsiz!</h2>
+
+      <div class="rules">
+        <h3 data-i18n="rules">Qoidalar</h3>
+        <p data-i18n="rule1">Sirli son 1 dan 100 gacha.</p>
+        <p data-i18n="rule2">Sonni topish uchun 7 ta imkoniyating bor.</p>
+        <p data-i18n="rule3">Har bir bosqichda ball to‘pla.</p>
+      </div>
+
+      <button class="main-button" onclick="startGame()" data-i18n="start">
+        O‘yinni boshlash
+      </button>
+    </section>
+
+    <section id="game" class="screen hidden">
+
+      <div class="stats">
+        <div>
+          <span data-i18n="level">Bosqich</span>
+          <strong id="level">1</strong>
+        </div>
+
+        <div>
+          <span data-i18n="score">Ball</span>
+          <strong id="score">0</strong>
+        </div>
+
+        <div>
+          <span data-i18n="attempts">Urinishlar</span>
+          <strong id="attempts">7</strong>
+        </div>
+
+        <div>
+          <span data-i18n="best">Eng yaxshi</span>
+          <strong id="bestScore">0</strong>
+        </div>
+      </div>
+
+      <h2 data-i18n="question">Sirli sonni top!</h2>
+
+      <input
+        id="guessInput"
+        type="number"
+        min="1"
+        max="100"
+        data-i18n-placeholder="guess"
+        placeholder="Sonni kiriting"
+      >
+
+      <button class="main-button" onclick="checkGuess()" data-i18n="check">
+        Tekshirish
+      </button>
+
+      <p id="message" aria-live="polite"></p>
+      <div id="history"></div>
+
+      <div class="game-buttons">
+        <button onclick="restartGame()" data-i18n="restart">
+          Qayta boshlash
+        </button>
+
+        <button onclick="goHome()" data-i18n="home">
+          Bosh sahifa
+        </button>
+      </div>
+    </section>
+
+    <section id="result" class="screen hidden">
+      <h2 id="resultTitle" data-i18n="resultTitle">Natija</h2>
+      <p id="resultText"></p>
+
+      <div class="result-stats">
+        <p>
+          <span data-i18n="finalScore">Yakuniy ball</span>:
+          <strong id="finalScore">0</strong>
+        </p>
+
+        <p>
+          <span data-i18n="totalScore">Jami ball</span>:
+          <strong id="totalScore">0</strong>
+        </p>
+
+        <p>
+          <span data-i18n="secret">Sirli son</span>:
+          <strong id="finalNumber">0</strong>
+        </p>
+
+        <p>
+          <span data-i18n="usedAttempts">Ishlatilgan urinishlar</span>:
+          <strong id="finalAttempts">0</strong>
+        </p>
+      </div>
+
+      <button
+        id="nextButton"
+        class="main-button hidden"
+        onclick="nextLevel()"
+        data-i18n="next">
+        Keyingi bosqich
+      </button>
+
+      <button onclick="restartGame()" data-i18n="restart">
+        Qayta boshlash
+      </button>
+
+      <button onclick="goHome()" data-i18n="home">
+        Bosh sahifa
+      </button>
+    </section>
+
+    <footer data-i18n="footer">BOYMURODOV JAHONGIR</footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
